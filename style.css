@@ -1,0 +1,276 @@
+/* Reset cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    /* Tắt vệt xanh khi chạm trên điện thoại */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #1a1a1a;
+    /* Tối ưu ảnh nền cho Mobile */
+    background: url('images/background.webp') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    /* Fix lỗi chiều cao Safari trên iPhone */
+    min-height: -webkit-fill-available;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+html {
+    height: -webkit-fill-available;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 420px;
+    padding: 50px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    /* Đảm bảo container chiếm hết màn hình để đẩy footer xuống đáy */
+}
+
+/* Avatar profile */
+.avatar-wrapper {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.7);
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Khu vực SĐT */
+.info-card {
+    text-align: center;
+    margin-bottom: 40px;
+    cursor: pointer;
+    position: relative;
+}
+
+.info-card h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+    opacity: 0.9;
+}
+
+.info-card p {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.tooltip {
+    visibility: hidden;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    text-align: center;
+    border-radius: 4px;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Các nút Link chính */
+.links-group {
+    width: 100%;
+}
+
+.btn-link {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 15px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 8px;
+    letter-spacing: 2px;
+    font-weight: 400;
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng khi nhấn nút trên điện thoại */
+.btn-link:active {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0.97);
+}
+
+/* --- PHẦN SOCIAL ICONS (FOOTER) --- */
+.social-icons {
+    margin-top: auto;
+    /* Đẩy cụm icon xuống dưới cùng */
+    display: flex;
+    gap: 40px;
+    /* Khoảng cách giữa các icon */
+    padding: 40px 0 20px 0;
+    justify-content: center;
+}
+
+.social-icons a {
+    color: white;
+    text-decoration: none;
+    font-size: 2.2rem;
+    /* Tăng kích thước icon theo yêu cầu */
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Hiệu ứng khi ấn vào icon mạng xã hội */
+.social-icons a:active {
+    opacity: 1;
+    transform: scale(1.2);
+    /* Phóng to nhẹ khi chạm */
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+    /* Tạo hiệu ứng phát sáng nhẹ */
+}
+
+/* Responsive cho màn hình cực nhỏ */
+@media (max-height: 667px) {
+    .container {
+        padding: 30px 20px;
+    }
+
+    .avatar-wrapper {
+        width: 120px;
+        height: 120px;
+    }
+
+    .info-card {
+        margin-bottom: 20px;
+    }
+}
+
+/* màu steam */
+.social-icons a:active .fa-steam {
+    color: #1e7fb7 !important;
+    /* Màu xanh sáng đặc trưng của Steam */
+    filter: drop-shadow(0 0 10px #66c0f4);
+    /* Tạo hiệu ứng tỏa sáng xanh */
+    opacity: 1;
+}
+
+/* màu nổi instagram */
+.social-icons a:active .fa-instagram {
+    color: #cb35b5;
+    filter: drop-shadow(0 0 10px #e1306c);
+}
+
+/* màu nổi facebook */
+.social-icons a:active .fa-facebook-f {
+    color: #1877f2;
+    filter: drop-shadow(0 0 10px #1877f2);
+}
+
+/* màu nổi tiktok */
+.social-icons a:active .fa-tiktok {
+    color: #ffffff;
+    filter: drop-shadow(0 0 10px #ff0050);
+}
+
+/* Màu Instagram (Hồng tím) */
+.fa-instagram {
+    color: #E4405F;
+}
+
+/* Màu Facebook (Xanh biển) */
+.fa-facebook-f {
+    color: #1877F2;
+}
+
+/* Màu TikTok (Trắng hoặc Cyan/Red) */
+.fa-tiktok {
+    color: #00F2EA;
+    /* Màu xanh Cyan của TikTok nổi bật trên nền tối */
+    text-shadow: 2px 0 0 #ff0050;
+    /* Hiệu ứng đổ bóng màu đỏ đặc trưng của TikTok */
+}
+
+/* Màu Steam (Xanh sáng) */
+.fa-steam {
+    color: #046297;
+}
+
+/* 1. Định nghĩa chuyển động bay lên */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 2. Áp dụng cho các nút link */
+.btn-link {
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+/* 3. Tạo độ trễ cho từng nút (Nút 1 hiện trước, nút 2 hiện sau...) */
+.btn-link:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.btn-link:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.btn-link:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.btn-link:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.btn-link:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+/* 4. Hiệu ứng cho cụm icon footer hiện ra sau cùng */
+.social-icons {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.7s;
+}
