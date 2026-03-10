@@ -44,15 +44,15 @@ html {
     min-height: 100vh;
 }
 
-/* Avatar profile - ĐÃ SỬA ĐỂ VỀ GIỮA */
+/* Avatar profile - CĂN GIỮA TUYỆT ĐỐI */
 .avatar-wrapper {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     border: 3px solid rgba(255, 255, 255, 0.7);
     overflow: hidden;
-    /* Dòng dưới đây giúp căn giữa tuyệt đối */
     margin: 0 auto 10px auto;
+    /* Căn giữa bằng auto margin */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     display: block;
 }
@@ -123,14 +123,15 @@ html {
     transform: scale(0.97);
 }
 
-/* Vùng chứa QR */
+/* Vùng chứa QR - TỐI ƯU CĂN GIỮA */
 .qr-container {
-    margin-top: 20px;
+    margin: 20px auto;
     padding: 20px;
+    width: 100%;
+    max-width: 320px;
     background: rgba(255, 255, 255, 0.15);
     border-radius: 20px;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -138,7 +139,9 @@ html {
 }
 
 .qr-code {
-    width: 180px;
+    width: 100%;
+    max-width: 180px;
+    /* Ép kích thước để không bị to quá trên iPhone */
     height: auto;
     border-radius: 12px;
     border: 3px solid white;
@@ -153,12 +156,27 @@ html {
     font-style: italic;
 }
 
-/* TẠM TẮT SOCIAL ICONS */
+/* HIỆN LẠI SOCIAL ICONS VỚI BỐ CỤC CHUẨN */
 .social-icons {
-    display: none !important;
+    display: flex !important;
+    margin-top: auto;
+    /* Đẩy xuống đáy */
+    gap: 30px;
+    /* Khoảng cách giữa các icon */
+    padding: 30px 0;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.7s;
 }
 
-/* HIỆU ỨNG GIỮ NGUYÊN */
+.social-icons a {
+    text-decoration: none;
+    font-size: 2.2rem;
+    transition: all 0.3s ease;
+}
+
+/* HIỆU ỨNG VÀ MÀU SẮC GIỮ NGUYÊN */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -188,25 +206,29 @@ html {
     animation-delay: 0.3s;
 }
 
-/* Các màu sắc icon cũ */
-.fa-instagram {
+/* Màu sắc icon thương hiệu */
+/* .fa-instagram {
     color: #E4405F;
 }
 
 .fa-facebook-f {
     color: #1877F2;
-}
+} */
 
 .fa-tiktok {
     color: #00F2EA;
     text-shadow: 2px 0 0 #ff0050;
 }
 
+.fa-discord {
+    color: #8e64db;
+}
+
 .fa-steam {
     color: #046297;
 }
 
-/* Responsive iPhone */
+/* Responsive iPhone 13 */
 @media (max-height: 667px) {
     .container {
         padding: 30px 20px;
